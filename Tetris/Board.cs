@@ -34,6 +34,21 @@ namespace Tetris
             tick(); // stop a crash when holding a key down when starting a game
         }
 
+        #region Events
+
+        public event EventHandler GameOver;
+
+        protected virtual void OnGameOver(EventArgs e)
+        {
+            EventHandler handler = GameOver;
+            if (handler != null)
+            {
+                handler(this, e);
+            }
+        }
+
+        #endregion
+
         #region variables
 
         /// <summary>
@@ -94,13 +109,20 @@ namespace Tetris
         /// </summary>
         public void tick()
         {
+            bool blockSpawned = false;
+
             if (currentBlock == null || !canDropFurther())
             {
                 spawnBlock();
+                blockSpawned = true;
             }
 
             lowerBlock();
             manageFullRows();
+
+            if (blockSpawned)
+                if (!canDropFurther())
+                    OnGameOver(EventArgs.Empty);
         }
 
         #region board

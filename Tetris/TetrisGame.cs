@@ -75,6 +75,16 @@ namespace Tetris
             createSquares();
             tickTimer.Enabled = true;
             playing = true;
+
+            board.GameOver += OnGameOver;
+        }
+
+        private void OnGameOver(object sender, EventArgs e)
+        {
+            tickTimer.Enabled = false;
+            playing = false;
+            updateBoard();
+            MessageBox.Show("Game over");
         }
 
         /// <summary>
