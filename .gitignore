@@ -28,6 +28,7 @@ Tetris-Build*/
 *.lib
 *.sbr
 *.sdf
+.vs/
 ipch/
 obj/
 [Bb]in
