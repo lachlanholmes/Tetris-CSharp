@@ -75,6 +75,7 @@ namespace Tetris
             createSquares();
             tickTimer.Enabled = true;
             playing = true;
+            Music music = new Music(board);
 
             board.GameOver += OnGameOver;
         }

@@ -68,7 +68,9 @@
     <Compile Include="Block.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="Coordinate.cs" />
+    <Compile Include="EventHandlerExtensions.cs" />
     <Compile Include="Input.cs" />
+    <Compile Include="Music.cs" />
     <Compile Include="PossibleBlockStartPositions.cs" />
     <Compile Include="Square.cs">
       <SubType>UserControl</SubType>
@@ -130,6 +132,22 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tetris Official Theme song.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

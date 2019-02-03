@@ -38,15 +38,6 @@ namespace Tetris
 
         public event EventHandler GameOver;
 
-        protected virtual void OnGameOver(EventArgs e)
-        {
-            EventHandler handler = GameOver;
-            if (handler != null)
-            {
-                handler(this, e);
-            }
-        }
-
         #endregion
 
         #region variables
@@ -122,7 +113,7 @@ namespace Tetris
 
             if (blockSpawned)
                 if (!canDropFurther())
-                    OnGameOver(EventArgs.Empty);
+                    GameOver.Fire(this, EventArgs.Empty);
         }
 
         #region board
